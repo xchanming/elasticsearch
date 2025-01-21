@@ -9,7 +9,7 @@ use Cicada\Core\Framework\DataAbstractionLayer\Search\IdSearchResult;
 use Cicada\Core\Framework\Log\Package;
 use Cicada\Core\Framework\Plugin\Exception\DecorationPatternException;
 
-#[Package('core')]
+#[Package('framework')]
 class ElasticsearchEntitySearchHydrator extends AbstractElasticsearchSearchHydrator
 {
     public function getDecorated(): AbstractElasticsearchSearchHydrator

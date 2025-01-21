@@ -10,7 +10,7 @@ use OpenSearch\Namespaces\NamespaceBuilderInterface;
 /**
  * @phpstan-type RequestInfo array{url: string, request: array<mixed>, response: array<mixed>, time: float, backtrace: string}
  */
-#[Package('core')]
+#[Package('framework')]
 class ClientProfiler extends Client
 {
     /**

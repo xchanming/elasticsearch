@@ -9,7 +9,7 @@ use Cicada\Core\Framework\Plugin\Exception\DecorationPatternException;
 use Cicada\Core\Framework\Uuid\Uuid;
 use Doctrine\DBAL\Connection;
 
-#[Package('core')]
+#[Package('framework')]
 class StopwordTokenFilter extends AbstractTokenFilter
 {
     /**

@@ -6,7 +6,7 @@ use Cicada\Core\Framework\Context;
 use Cicada\Core\Framework\Log\Package;
 use Cicada\Elasticsearch\Framework\AbstractElasticsearchDefinition;
 
-#[Package('core')]
+#[Package('framework')]
 class IndexMappingProvider
 {
     /**

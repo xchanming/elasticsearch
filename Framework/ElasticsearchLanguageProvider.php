@@ -13,7 +13,7 @@ use Cicada\Core\System\Language\LanguageCollection;
 use Cicada\Elasticsearch\Framework\Indexing\Event\ElasticsearchIndexerLanguageCriteriaEvent;
 use Psr\EventDispatcher\EventDispatcherInterface;
 
-#[Package('core')]
+#[Package('framework')]
 class ElasticsearchLanguageProvider
 {
     /**

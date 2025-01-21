@@ -13,7 +13,7 @@ use Doctrine\DBAL\Connection;
  *
  * @phpstan-type SearchConfig array{and_logic: string, field: string, tokenize: int, ranking: float}
  */
-#[Package('core')]
+#[Package('framework')]
 class SearchConfigLoader
 {
     private const NOT_SUPPORTED_FIELDS = [

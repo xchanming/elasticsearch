@@ -5,7 +5,7 @@ namespace Cicada\Elasticsearch\Product;
 use Cicada\Core\Framework\Feature;
 use Cicada\Core\Framework\Log\Package;
 
-#[Package('core')]
+#[Package('framework')]
 class SearchFieldConfig
 {
     private float $ranking;

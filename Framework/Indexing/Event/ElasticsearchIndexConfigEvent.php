@@ -7,7 +7,7 @@ use Cicada\Core\Framework\Event\CicadaEvent;
 use Cicada\Core\Framework\Log\Package;
 use Cicada\Elasticsearch\Framework\AbstractElasticsearchDefinition;
 
-#[Package('core')]
+#[Package('framework')]
 class ElasticsearchIndexConfigEvent implements CicadaEvent
 {
     /**

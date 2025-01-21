@@ -7,7 +7,7 @@ use Cicada\Core\Framework\Context;
 use Cicada\Core\Framework\Log\Package;
 use Cicada\Elasticsearch\Framework\ElasticsearchHelper;
 
-#[Package('core')]
+#[Package('framework')]
 class SearchKeywordReplacement extends SearchKeywordUpdater
 {
     /**

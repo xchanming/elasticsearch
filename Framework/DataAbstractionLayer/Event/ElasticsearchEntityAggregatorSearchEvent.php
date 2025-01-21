@@ -10,7 +10,7 @@ use Cicada\Core\Framework\Log\Package;
 use OpenSearchDSL\Search;
 use Symfony\Contracts\EventDispatcher\Event;
 
-#[Package('core')]
+#[Package('framework')]
 class ElasticsearchEntityAggregatorSearchEvent extends Event implements CicadaEvent
 {
     public function __construct(

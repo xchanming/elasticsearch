@@ -21,7 +21,7 @@ use OpenSearchDSL\Aggregation\Metric\CardinalityAggregation;
 use OpenSearchDSL\Search;
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 
-#[Package('core')]
+#[Package('framework')]
 class ElasticsearchEntitySearcher implements EntitySearcherInterface
 {
     final public const EXPLAIN_MODE = 'explain-mode';

@@ -16,7 +16,7 @@ use OpenSearch\Client;
 use OpenSearchDSL\Search;
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 
-#[Package('core')]
+#[Package('framework')]
 class ElasticsearchEntityAggregator implements EntityAggregatorInterface
 {
     final public const RESULT_STATE = 'loaded-by-elastic';

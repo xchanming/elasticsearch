@@ -6,7 +6,7 @@ use Cicada\Core\Framework\Log\Package;
 use OpenSearchDSL\BuilderInterface;
 use OpenSearchDSL\Sort\FieldSort;
 
-#[Package('core')]
+#[Package('framework')]
 class CountSort extends FieldSort
 {
     /**

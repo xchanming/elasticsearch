@@ -4,7 +4,7 @@ namespace Cicada\Elasticsearch\Framework\Indexing;
 
 use Cicada\Core\Framework\Log\Package;
 
-#[Package('core')]
+#[Package('framework')]
 class IndexerOffset
 {
     /**

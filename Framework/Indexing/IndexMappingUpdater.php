@@ -10,7 +10,7 @@ use Cicada\Elasticsearch\Product\ElasticsearchProductException;
 use OpenSearch\Client;
 use OpenSearch\Common\Exceptions\BadRequest400Exception;
 
-#[Package('core')]
+#[Package('framework')]
 class IndexMappingUpdater
 {
     /**

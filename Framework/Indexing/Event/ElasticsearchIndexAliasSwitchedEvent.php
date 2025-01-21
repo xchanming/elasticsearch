@@ -4,7 +4,7 @@ namespace Cicada\Elasticsearch\Framework\Indexing\Event;
 
 use Cicada\Core\Framework\Log\Package;
 
-#[Package('core')]
+#[Package('framework')]
 class ElasticsearchIndexAliasSwitchedEvent
 {
     /**

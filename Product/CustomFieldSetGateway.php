@@ -13,7 +13,7 @@ use Doctrine\DBAL\Connection;
  *
  * @codeCoverageIgnore Integration tested with \Cicada\Tests\Integration\Elasticsearch\Product\CustomFieldSetGatewayTest
  */
-#[Package('core')]
+#[Package('framework')]
 class CustomFieldSetGateway
 {
     public function __construct(

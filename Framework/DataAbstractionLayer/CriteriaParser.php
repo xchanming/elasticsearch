@@ -71,7 +71,7 @@ use OpenSearchDSL\Query\TermLevel\TermsQuery;
 use OpenSearchDSL\Query\TermLevel\WildcardQuery;
 use OpenSearchDSL\Sort\FieldSort;
 
-#[Package('core')]
+#[Package('framework')]
 class CriteriaParser
 {
     /**

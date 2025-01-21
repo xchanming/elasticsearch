@@ -38,7 +38,7 @@ use Cicada\Core\Framework\Log\Package;
 use Cicada\Core\Framework\Plugin\Exception\DecorationPatternException;
 use Cicada\Elasticsearch\ElasticsearchException;
 
-#[Package('core')]
+#[Package('framework')]
 class ElasticsearchEntityAggregatorHydrator extends AbstractElasticsearchAggregationHydrator
 {
     /**

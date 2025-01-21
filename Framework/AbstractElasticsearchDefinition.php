@@ -9,7 +9,7 @@ use Cicada\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Cicada\Core\Framework\Log\Package;
 use OpenSearchDSL\Query\Compound\BoolQuery;
 
-#[Package('core')]
+#[Package('framework')]
 abstract class AbstractElasticsearchDefinition
 {
     final public const KEYWORD_FIELD = [

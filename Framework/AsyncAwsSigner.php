@@ -17,7 +17,7 @@ use Psr\Log\LoggerInterface;
 /**
  * @internal
  */
-#[Package('core')]
+#[Package('framework')]
 class AsyncAwsSigner
 {
     public function __construct(

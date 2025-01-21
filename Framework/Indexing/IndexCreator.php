@@ -10,7 +10,7 @@ use Cicada\Elasticsearch\Framework\Indexing\Event\ElasticsearchIndexCreatedEvent
 use OpenSearch\Client;
 use Psr\EventDispatcher\EventDispatcherInterface;
 
-#[Package('core')]
+#[Package('framework')]
 class IndexCreator
 {
     /**

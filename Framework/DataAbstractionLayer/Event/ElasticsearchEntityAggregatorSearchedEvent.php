@@ -14,7 +14,7 @@ use Symfony\Contracts\EventDispatcher\Event;
 /**
  * @codeCoverageIgnore
  */
-#[Package('core')]
+#[Package('framework')]
 class ElasticsearchEntityAggregatorSearchedEvent extends Event implements CicadaEvent
 {
     public function __construct(

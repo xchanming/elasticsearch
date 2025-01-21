@@ -5,7 +5,7 @@ namespace Cicada\Elasticsearch\Framework;
 use Cicada\Core\Framework\Log\Package;
 use OpenSearch\Client;
 
-#[Package('core')]
+#[Package('framework')]
 class ElasticsearchOutdatedIndexDetector
 {
     /**

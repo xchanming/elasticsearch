@@ -16,7 +16,7 @@ use OpenSearchDSL\Query\FullText\MatchQuery;
 use OpenSearchDSL\Search;
 use Psr\Log\LoggerInterface;
 
-#[Package('core')]
+#[Package('framework')]
 class ElasticsearchHelper
 {
     // max for default configuration

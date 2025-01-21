@@ -9,7 +9,7 @@ use OpenSearch\Client;
 use OpenSearch\ClientBuilder;
 use Psr\Log\LoggerInterface;
 
-#[Package('core')]
+#[Package('framework')]
 class ClientFactory
 {
     /**

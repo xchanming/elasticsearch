@@ -31,7 +31,7 @@ use OpenSearchDSL\Query\TermLevel\TermQuery;
  *
  * @deprecated tag:v6.7.0 - reason:becomes-final
  */
-#[Package('core')]
+#[Package('framework')]
 class TokenQueryBuilder
 {
     /**

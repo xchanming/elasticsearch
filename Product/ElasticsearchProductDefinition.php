@@ -21,7 +21,7 @@ use OpenSearchDSL\Query\Compound\BoolQuery;
 /**
  * @internal
  */
-#[Package('core')]
+#[Package('framework')]
 class ElasticsearchProductDefinition extends AbstractElasticsearchDefinition
 {
     /**

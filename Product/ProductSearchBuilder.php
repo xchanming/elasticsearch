@@ -11,7 +11,7 @@ use Cicada\Core\System\SalesChannel\SalesChannelContext;
 use Cicada\Elasticsearch\Framework\ElasticsearchHelper;
 use Symfony\Component\HttpFoundation\Request;
 
-#[Package('core')]
+#[Package('framework')]
 class ProductSearchBuilder implements ProductSearchBuilderInterface
 {
     /**

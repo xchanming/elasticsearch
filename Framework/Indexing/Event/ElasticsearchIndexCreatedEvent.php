@@ -5,7 +5,7 @@ namespace Cicada\Elasticsearch\Framework\Indexing\Event;
 use Cicada\Core\Framework\Log\Package;
 use Cicada\Elasticsearch\Framework\AbstractElasticsearchDefinition;
 
-#[Package('core')]
+#[Package('framework')]
 class ElasticsearchIndexCreatedEvent
 {
     public function __construct(

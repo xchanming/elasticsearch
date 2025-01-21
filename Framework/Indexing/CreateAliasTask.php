@@ -6,7 +6,7 @@ use Cicada\Core\Framework\Log\Package;
 use Cicada\Core\Framework\MessageQueue\ScheduledTask\ScheduledTask;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
-#[Package('core')]
+#[Package('framework')]
 class CreateAliasTask extends ScheduledTask
 {
     public static function getTaskName(): string

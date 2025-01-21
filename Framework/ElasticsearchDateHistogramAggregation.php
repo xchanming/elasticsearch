@@ -9,7 +9,7 @@ use OpenSearchDSL\Aggregation\Type\BucketingTrait;
 /**
  * @internal
  */
-#[Package('core')]
+#[Package('framework')]
 class ElasticsearchDateHistogramAggregation extends AbstractAggregation
 {
     use BucketingTrait;

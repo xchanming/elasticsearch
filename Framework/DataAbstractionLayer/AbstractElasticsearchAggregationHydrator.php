@@ -8,7 +8,7 @@ use Cicada\Core\Framework\DataAbstractionLayer\Search\AggregationResult\Aggregat
 use Cicada\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Cicada\Core\Framework\Log\Package;
 
-#[Package('core')]
+#[Package('framework')]
 abstract class AbstractElasticsearchAggregationHydrator
 {
     abstract public function getDecorated(): AbstractElasticsearchAggregationHydrator;
