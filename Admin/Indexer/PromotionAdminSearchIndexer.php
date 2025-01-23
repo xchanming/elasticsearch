@@ -17,7 +17,7 @@ use Doctrine\DBAL\Connection;
 /**
  * @final
  */
-#[Package('services-settings')]
+#[Package('inventory')]
 class PromotionAdminSearchIndexer extends AbstractAdminIndexer
 {
     /**

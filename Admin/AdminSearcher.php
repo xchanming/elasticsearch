@@ -18,7 +18,7 @@ use OpenSearchDSL\Search;
  *
  * @final
  */
-#[Package('services-settings')]
+#[Package('inventory')]
 class AdminSearcher
 {
     public function __construct(

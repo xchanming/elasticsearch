@@ -14,7 +14,7 @@ use Cicada\Core\System\SalesChannel\SalesChannelDefinition;
 use Doctrine\DBAL\ArrayParameterType;
 use Doctrine\DBAL\Connection;
 
-#[Package('services-settings')]
+#[Package('inventory')]
 final class SalesChannelAdminSearchIndexer extends AbstractAdminIndexer
 {
     /**

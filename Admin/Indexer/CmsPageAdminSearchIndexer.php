@@ -14,7 +14,7 @@ use Cicada\Core\Framework\Uuid\Uuid;
 use Doctrine\DBAL\ArrayParameterType;
 use Doctrine\DBAL\Connection;
 
-#[Package('services-settings')]
+#[Package('inventory')]
 final class CmsPageAdminSearchIndexer extends AbstractAdminIndexer
 {
     /**

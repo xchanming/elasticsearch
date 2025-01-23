@@ -18,7 +18,7 @@ use OpenSearchDSL\Query\Compound\BoolQuery;
 use OpenSearchDSL\Query\FullText\SimpleQueryStringQuery;
 use OpenSearchDSL\Search;
 
-#[Package('services-settings')]
+#[Package('inventory')]
 final class ProductAdminSearchIndexer extends AbstractAdminIndexer
 {
     /**

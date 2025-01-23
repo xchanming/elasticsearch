@@ -9,7 +9,7 @@ use Cicada\Core\Framework\DataAbstractionLayer\EntityCollection;
 use Cicada\Core\Framework\Log\Package;
 use OpenSearchDSL\Search;
 
-#[Package('services-settings')]
+#[Package('inventory')]
 abstract class AbstractAdminIndexer
 {
     abstract public function getDecorated(): self;
