@@ -2,6 +2,7 @@
 
 namespace Cicada\Elasticsearch\Admin\Indexer;
 
+use Cicada\Core\Content\LandingPage\LandingPageCollection;
 use Cicada\Core\Content\LandingPage\LandingPageDefinition;
 use Cicada\Core\Framework\Context;
 use Cicada\Core\Framework\DataAbstractionLayer\Dbal\Common\IterableQuery;
@@ -19,6 +20,8 @@ final class LandingPageAdminSearchIndexer extends AbstractAdminIndexer
 {
     /**
      * @internal
+     *
+     * @param EntityRepository<LandingPageCollection> $repository
      */
     public function __construct(
         private readonly Connection $connection,

@@ -2,6 +2,7 @@
 
 namespace Cicada\Elasticsearch\Admin\Indexer;
 
+use Cicada\Core\Content\Product\Aggregate\ProductManufacturer\ProductManufacturerCollection;
 use Cicada\Core\Content\Product\Aggregate\ProductManufacturer\ProductManufacturerDefinition;
 use Cicada\Core\Framework\Context;
 use Cicada\Core\Framework\DataAbstractionLayer\Dbal\Common\IterableQuery;
@@ -19,6 +20,8 @@ final class ManufacturerAdminSearchIndexer extends AbstractAdminIndexer
 {
     /**
      * @internal
+     *
+     * @param EntityRepository<ProductManufacturerCollection> $repository
      */
     public function __construct(
         private readonly Connection $connection,

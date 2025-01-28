@@ -2,6 +2,7 @@
 
 namespace Cicada\Elasticsearch\Admin\Indexer;
 
+use Cicada\Core\Checkout\Customer\Aggregate\CustomerGroup\CustomerGroupCollection;
 use Cicada\Core\Checkout\Customer\Aggregate\CustomerGroup\CustomerGroupDefinition;
 use Cicada\Core\Framework\Context;
 use Cicada\Core\Framework\DataAbstractionLayer\Dbal\Common\IterableQuery;
@@ -19,6 +20,8 @@ final class CustomerGroupAdminSearchIndexer extends AbstractAdminIndexer
 {
     /**
      * @internal
+     *
+     * @param EntityRepository<CustomerGroupCollection> $repository
      */
     public function __construct(
         private readonly Connection $connection,

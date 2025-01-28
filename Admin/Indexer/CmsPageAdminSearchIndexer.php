@@ -2,6 +2,7 @@
 
 namespace Cicada\Elasticsearch\Admin\Indexer;
 
+use Cicada\Core\Content\Cms\CmsPageCollection;
 use Cicada\Core\Content\Cms\CmsPageDefinition;
 use Cicada\Core\Framework\Context;
 use Cicada\Core\Framework\DataAbstractionLayer\Dbal\Common\IterableQuery;
@@ -19,6 +20,8 @@ final class CmsPageAdminSearchIndexer extends AbstractAdminIndexer
 {
     /**
      * @internal
+     *
+     * @param EntityRepository<CmsPageCollection> $repository
      */
     public function __construct(
         private readonly Connection $connection,

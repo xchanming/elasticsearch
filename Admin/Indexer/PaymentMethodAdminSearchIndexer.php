@@ -2,6 +2,7 @@
 
 namespace Cicada\Elasticsearch\Admin\Indexer;
 
+use Cicada\Core\Checkout\Payment\PaymentMethodCollection;
 use Cicada\Core\Checkout\Payment\PaymentMethodDefinition;
 use Cicada\Core\Framework\Context;
 use Cicada\Core\Framework\DataAbstractionLayer\Dbal\Common\IterableQuery;
@@ -19,6 +20,8 @@ final class PaymentMethodAdminSearchIndexer extends AbstractAdminIndexer
 {
     /**
      * @internal
+     *
+     * @param EntityRepository<PaymentMethodCollection> $repository
      */
     public function __construct(
         private readonly Connection $connection,

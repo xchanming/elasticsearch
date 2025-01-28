@@ -4,6 +4,7 @@ namespace Cicada\Elasticsearch\Framework\Indexing;
 
 use Cicada\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Cicada\Core\Framework\Log\Package;
+use Cicada\Core\Framework\MessageQueue\ScheduledTask\ScheduledTaskCollection;
 use Cicada\Core\Framework\MessageQueue\ScheduledTask\ScheduledTaskHandler;
 use Cicada\Elasticsearch\Framework\ElasticsearchHelper;
 use Cicada\Elasticsearch\Framework\Indexing\Event\ElasticsearchIndexAliasSwitchedEvent;
@@ -25,6 +26,7 @@ class CreateAliasTaskHandler extends ScheduledTaskHandler
     /**
      * @internal
      *
+     * @param EntityRepository<ScheduledTaskCollection> $scheduledTaskRepository
      * @param array<mixed> $config
      */
     public function __construct(

@@ -2,6 +2,7 @@
 
 namespace Cicada\Elasticsearch\Admin\Indexer;
 
+use Cicada\Core\Checkout\Order\OrderCollection;
 use Cicada\Core\Checkout\Order\OrderDefinition;
 use Cicada\Core\Defaults;
 use Cicada\Core\Framework\Context;
@@ -20,6 +21,8 @@ final class OrderAdminSearchIndexer extends AbstractAdminIndexer
 {
     /**
      * @internal
+     *
+     * @param EntityRepository<OrderCollection> $repository
      */
     public function __construct(
         private readonly Connection $connection,
