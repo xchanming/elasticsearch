@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Framework\Command;
+namespace Shopware\Elasticsearch\Framework\Command;
 
-use Cicada\Core\Framework\Adapter\Console\CicadaStyle;
-use Cicada\Core\Framework\DataAbstractionLayer\Command\ConsoleProgressTrait;
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Elasticsearch\Admin\AdminIndexingBehavior;
-use Cicada\Elasticsearch\Admin\AdminSearchRegistry;
+use Shopware\Core\Framework\Adapter\Console\ShopwareStyle;
+use Shopware\Core\Framework\DataAbstractionLayer\Command\ConsoleProgressTrait;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Elasticsearch\Admin\AdminIndexingBehavior;
+use Shopware\Elasticsearch\Admin\AdminSearchRegistry;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -47,7 +47,7 @@ final class ElasticsearchAdminIndexingCommand extends Command implements EventSu
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $this->io = $input->getOption('no-progress') ? null : new CicadaStyle($input, $output);
+        $this->io = $input->getOption('no-progress') ? null : new ShopwareStyle($input, $output);
 
         $skip = \is_string($input->getOption('skip')) ? explode(',', $input->getOption('skip')) : [];
         $only = \is_string($input->getOption('only')) ? explode(',', $input->getOption('only')) : [];

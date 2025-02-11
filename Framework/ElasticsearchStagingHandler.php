@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Framework;
+namespace Shopware\Elasticsearch\Framework;
 
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Core\Maintenance\Staging\Event\SetupStagingEvent;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Core\Maintenance\Staging\Event\SetupStagingEvent;
 
 /**
  * @internal

@@ -1,21 +1,21 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Framework\DataAbstractionLayer\Event;
+namespace Shopware\Elasticsearch\Framework\DataAbstractionLayer\Event;
 
-use Cicada\Core\Framework\Context;
-use Cicada\Core\Framework\DataAbstractionLayer\EntityDefinition;
-use Cicada\Core\Framework\DataAbstractionLayer\Search\Criteria;
-use Cicada\Core\Framework\DataAbstractionLayer\Search\IdSearchResult;
-use Cicada\Core\Framework\Event\CicadaEvent;
-use Cicada\Core\Framework\Log\Package;
 use OpenSearchDSL\Search;
+use Shopware\Core\Framework\Context;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityDefinition;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\IdSearchResult;
+use Shopware\Core\Framework\Event\ShopwareEvent;
+use Shopware\Core\Framework\Log\Package;
 use Symfony\Contracts\EventDispatcher\Event;
 
 /**
  * @codeCoverageIgnore
  */
 #[Package('framework')]
-class ElasticsearchEntitySearcherSearchedEvent extends Event implements CicadaEvent
+class ElasticsearchEntitySearcherSearchedEvent extends Event implements ShopwareEvent
 {
     public function __construct(
         public readonly IdSearchResult $result,

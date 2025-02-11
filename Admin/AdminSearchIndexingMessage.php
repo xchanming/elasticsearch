@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Admin;
+namespace Shopware\Elasticsearch\Admin;
 
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Core\Framework\MessageQueue\AsyncMessageInterface;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Core\Framework\MessageQueue\AsyncMessageInterface;
 
 /**
  * @internal

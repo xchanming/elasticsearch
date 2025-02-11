@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Framework\Command;
+namespace Shopware\Elasticsearch\Framework\Command;
 
-use Cicada\Core\Framework\Adapter\Console\CicadaStyle;
-use Cicada\Core\Framework\DataAbstractionLayer\Command\ConsoleProgressTrait;
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Elasticsearch\Framework\Indexing\CreateAliasTaskHandler;
-use Cicada\Elasticsearch\Framework\Indexing\ElasticsearchIndexer;
+use Shopware\Core\Framework\Adapter\Console\ShopwareStyle;
+use Shopware\Core\Framework\DataAbstractionLayer\Command\ConsoleProgressTrait;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Elasticsearch\Framework\Indexing\CreateAliasTaskHandler;
+use Shopware\Elasticsearch\Framework\Indexing\ElasticsearchIndexer;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\ProgressBar;
@@ -52,7 +52,7 @@ class ElasticsearchIndexingCommand extends Command
     {
         $stopwatch = new Stopwatch();
         $stopwatch->start('es-indexing');
-        $this->io = new CicadaStyle($input, $output);
+        $this->io = new ShopwareStyle($input, $output);
 
         if (!$this->enabled) {
             $this->io->error('Elasticsearch indexing is disabled');

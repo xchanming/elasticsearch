@@ -1,19 +1,19 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Framework\DataAbstractionLayer;
+namespace Shopware\Elasticsearch\Framework\DataAbstractionLayer;
 
-use Cicada\Core\Framework\Context;
-use Cicada\Core\Framework\DataAbstractionLayer\EntityDefinition;
-use Cicada\Core\Framework\DataAbstractionLayer\Search\AggregationResult\AggregationResultCollection;
-use Cicada\Core\Framework\DataAbstractionLayer\Search\Criteria;
-use Cicada\Core\Framework\DataAbstractionLayer\Search\EntityAggregatorInterface;
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Elasticsearch\ElasticsearchException;
-use Cicada\Elasticsearch\Framework\DataAbstractionLayer\Event\ElasticsearchEntityAggregatorSearchedEvent;
-use Cicada\Elasticsearch\Framework\DataAbstractionLayer\Event\ElasticsearchEntityAggregatorSearchEvent;
-use Cicada\Elasticsearch\Framework\ElasticsearchHelper;
 use OpenSearch\Client;
 use OpenSearchDSL\Search;
+use Shopware\Core\Framework\Context;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityDefinition;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\AggregationResult\AggregationResultCollection;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\EntityAggregatorInterface;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Elasticsearch\ElasticsearchException;
+use Shopware\Elasticsearch\Framework\DataAbstractionLayer\Event\ElasticsearchEntityAggregatorSearchedEvent;
+use Shopware\Elasticsearch\Framework\DataAbstractionLayer\Event\ElasticsearchEntityAggregatorSearchEvent;
+use Shopware\Elasticsearch\Framework\ElasticsearchHelper;
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 
 #[Package('framework')]

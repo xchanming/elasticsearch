@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Framework\Command;
+namespace Shopware\Elasticsearch\Framework\Command;
 
-use Cicada\Core\Framework\Context;
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Elasticsearch\Framework\Indexing\IndexMappingUpdater;
+use Shopware\Core\Framework\Context;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Elasticsearch\Framework\Indexing\IndexMappingUpdater;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;

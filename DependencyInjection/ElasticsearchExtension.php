@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\DependencyInjection;
+namespace Shopware\Elasticsearch\DependencyInjection;
 
-use Cicada\Core\Framework\Log\Package;
+use Shopware\Core\Framework\Log\Package;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;

@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Admin\Indexer;
+namespace Shopware\Elasticsearch\Admin\Indexer;
 
-use Cicada\Core\Framework\Context;
-use Cicada\Core\Framework\DataAbstractionLayer\Dbal\Common\IterableQuery;
-use Cicada\Core\Framework\DataAbstractionLayer\Entity;
-use Cicada\Core\Framework\DataAbstractionLayer\EntityCollection;
-use Cicada\Core\Framework\Log\Package;
 use OpenSearchDSL\Search;
+use Shopware\Core\Framework\Context;
+use Shopware\Core\Framework\DataAbstractionLayer\Dbal\Common\IterableQuery;
+use Shopware\Core\Framework\DataAbstractionLayer\Entity;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityCollection;
+use Shopware\Core\Framework\Log\Package;
 
 #[Package('inventory')]
 abstract class AbstractAdminIndexer
@@ -40,7 +40,9 @@ abstract class AbstractAdminIndexer
     /**
      * @param array<string, mixed> $result
      *
-     * @return array{total:int, data:EntityCollection<Entity>} returns EntityCollection<Entity> and their total by ids in the result parameter
+     * @return array{total:int, data: EntityCollection<covariant Entity>}
+     *
+     * Returns EntityCollection<Entity> and their total by ids in the result parameter
      */
     abstract public function globalData(array $result, Context $context): array;
 

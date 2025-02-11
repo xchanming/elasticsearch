@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Framework;
+namespace Shopware\Elasticsearch\Framework;
 
-use Cicada\Core\Framework\Log\Package;
 use OpenSearchDSL\Aggregation\AbstractAggregation;
 use OpenSearchDSL\Aggregation\Type\BucketingTrait;
+use Shopware\Core\Framework\Log\Package;
 
 /**
  * @internal

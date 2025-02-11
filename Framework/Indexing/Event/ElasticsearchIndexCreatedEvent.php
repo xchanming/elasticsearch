@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Framework\Indexing\Event;
+namespace Shopware\Elasticsearch\Framework\Indexing\Event;
 
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Elasticsearch\Framework\AbstractElasticsearchDefinition;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Elasticsearch\Framework\AbstractElasticsearchDefinition;
 
 #[Package('framework')]
 class ElasticsearchIndexCreatedEvent

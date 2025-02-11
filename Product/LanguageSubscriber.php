@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Product;
+namespace Shopware\Elasticsearch\Product;
 
-use Cicada\Core\Framework\DataAbstractionLayer\EntityWriteResult;
-use Cicada\Core\Framework\DataAbstractionLayer\Event\EntityWrittenEvent;
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Elasticsearch\Framework\ElasticsearchHelper;
-use Cicada\Elasticsearch\Framework\ElasticsearchRegistry;
 use OpenSearch\Client;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityWriteResult;
+use Shopware\Core\Framework\DataAbstractionLayer\Event\EntityWrittenEvent;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Elasticsearch\Framework\ElasticsearchHelper;
+use Shopware\Elasticsearch\Framework\ElasticsearchRegistry;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**

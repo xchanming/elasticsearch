@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Profiler;
+namespace Shopware\Elasticsearch\Profiler;
 
-use Cicada\Core\Framework\Log\Package;
 use OpenSearch\Client;
+use Shopware\Core\Framework\Log\Package;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
@@ -24,18 +24,18 @@ class ElasticsearchProfileCompilerPass implements CompilerPassInterface
 
         $clientDecorator = new Definition(ClientProfiler::class);
         $clientDecorator->setArguments([
-            new Reference('cicada.es.profiled.client.inner'),
+            new Reference('shopware.es.profiled.client.inner'),
         ]);
         $clientDecorator->setDecoratedService(Client::class);
 
-        $container->setDefinition('cicada.es.profiled.client', $clientDecorator);
+        $container->setDefinition('shopware.es.profiled.client', $clientDecorator);
 
         $adminClientDecorator = new Definition(ClientProfiler::class);
         $adminClientDecorator->setArguments([
-            new Reference('cicada.es.profiled.adminClient.inner'),
+            new Reference('shopware.es.profiled.adminClient.inner'),
         ]);
         $adminClientDecorator->setDecoratedService('admin.openSearch.client');
 
-        $container->setDefinition('cicada.es.profiled.adminClient', $adminClientDecorator);
+        $container->setDefinition('shopware.es.profiled.adminClient', $adminClientDecorator);
     }
 }

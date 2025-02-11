@@ -1,21 +1,21 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Admin;
+namespace Shopware\Elasticsearch\Admin;
 
-use Cicada\Core\Framework\DataAbstractionLayer\Event\EntityWrittenContainerEvent;
-use Cicada\Core\Framework\Event\ProgressAdvancedEvent;
-use Cicada\Core\Framework\Event\ProgressFinishedEvent;
-use Cicada\Core\Framework\Event\ProgressStartedEvent;
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Core\Framework\Uuid\Uuid;
-use Cicada\Elasticsearch\Admin\Indexer\AbstractAdminIndexer;
-use Cicada\Elasticsearch\ElasticsearchException;
 use Doctrine\DBAL\ArrayParameterType;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Exception;
 use OpenSearch\Client;
 use OpenSearch\Common\Exceptions\OpenSearchException;
 use Psr\Log\LoggerInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\Event\EntityWrittenContainerEvent;
+use Shopware\Core\Framework\Event\ProgressAdvancedEvent;
+use Shopware\Core\Framework\Event\ProgressFinishedEvent;
+use Shopware\Core\Framework\Event\ProgressStartedEvent;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Core\Framework\Uuid\Uuid;
+use Shopware\Elasticsearch\Admin\Indexer\AbstractAdminIndexer;
+use Shopware\Elasticsearch\ElasticsearchException;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 use Symfony\Component\Messenger\MessageBusInterface;

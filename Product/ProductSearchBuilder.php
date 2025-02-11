@@ -1,14 +1,14 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Product;
+namespace Shopware\Elasticsearch\Product;
 
-use Cicada\Core\Content\Product\ProductDefinition;
-use Cicada\Core\Content\Product\SearchKeyword\ProductSearchBuilderInterface;
-use Cicada\Core\Framework\DataAbstractionLayer\Search\Criteria;
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Core\Framework\Routing\RoutingException;
-use Cicada\Core\System\SalesChannel\SalesChannelContext;
-use Cicada\Elasticsearch\Framework\ElasticsearchHelper;
+use Shopware\Core\Content\Product\ProductDefinition;
+use Shopware\Core\Content\Product\SearchKeyword\ProductSearchBuilderInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Core\Framework\Routing\RoutingException;
+use Shopware\Core\System\SalesChannel\SalesChannelContext;
+use Shopware\Elasticsearch\Framework\ElasticsearchHelper;
 use Symfony\Component\HttpFoundation\Request;
 
 #[Package('framework')]

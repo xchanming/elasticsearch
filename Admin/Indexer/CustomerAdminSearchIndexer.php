@@ -1,24 +1,27 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Admin\Indexer;
+namespace Shopware\Elasticsearch\Admin\Indexer;
 
-use Cicada\Core\Checkout\Customer\CustomerDefinition;
-use Cicada\Core\Framework\Context;
-use Cicada\Core\Framework\DataAbstractionLayer\Dbal\Common\IterableQuery;
-use Cicada\Core\Framework\DataAbstractionLayer\Dbal\Common\IteratorFactory;
-use Cicada\Core\Framework\DataAbstractionLayer\EntityRepository;
-use Cicada\Core\Framework\DataAbstractionLayer\Search\Criteria;
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Core\Framework\Plugin\Exception\DecorationPatternException;
-use Cicada\Core\Framework\Uuid\Uuid;
 use Doctrine\DBAL\ArrayParameterType;
 use Doctrine\DBAL\Connection;
+use Shopware\Core\Checkout\Customer\CustomerCollection;
+use Shopware\Core\Checkout\Customer\CustomerDefinition;
+use Shopware\Core\Framework\Context;
+use Shopware\Core\Framework\DataAbstractionLayer\Dbal\Common\IterableQuery;
+use Shopware\Core\Framework\DataAbstractionLayer\Dbal\Common\IteratorFactory;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Core\Framework\Plugin\Exception\DecorationPatternException;
+use Shopware\Core\Framework\Uuid\Uuid;
 
 #[Package('inventory')]
 final class CustomerAdminSearchIndexer extends AbstractAdminIndexer
 {
     /**
      * @internal
+     *
+     * @param EntityRepository<CustomerCollection> $repository
      */
     public function __construct(
         private readonly Connection $connection,
@@ -65,7 +68,8 @@ final class CustomerAdminSearchIndexer extends AbstractAdminIndexer
             SELECT LOWER(HEX(customer.id)) as id,
                    GROUP_CONCAT(DISTINCT tag.name SEPARATOR " ") as tags,
                    GROUP_CONCAT(DISTINCT country_translation.name SEPARATOR " ") as country,
-                   GROUP_CONCAT(DISTINCT customer_address.name SEPARATOR " ") as address_name,
+                   GROUP_CONCAT(DISTINCT customer_address.first_name SEPARATOR " ") as address_first_name,
+                   GROUP_CONCAT(DISTINCT customer_address.last_name SEPARATOR " ") as address_last_name,
                    GROUP_CONCAT(DISTINCT customer_address.company SEPARATOR " ") as address_company,
                    GROUP_CONCAT(DISTINCT customer_address.city SEPARATOR " ") as city,
                    GROUP_CONCAT(DISTINCT customer_address.street SEPARATOR " ") as street,
@@ -73,7 +77,8 @@ final class CustomerAdminSearchIndexer extends AbstractAdminIndexer
                    GROUP_CONCAT(DISTINCT customer_address.phone_number SEPARATOR " ") as phone_number,
                    GROUP_CONCAT(DISTINCT customer_address.additional_address_line1 SEPARATOR " ") as additional_address_line1,
                    GROUP_CONCAT(DISTINCT customer_address.additional_address_line2 SEPARATOR " ") as additional_address_line2,
-                   customer.name,
+                   customer.first_name,
+                   customer.last_name,
                    customer.email,
                    customer.company,
                    customer.customer_number

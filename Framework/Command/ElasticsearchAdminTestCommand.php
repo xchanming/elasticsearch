@@ -1,24 +1,24 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Framework\Command;
+namespace Shopware\Elasticsearch\Framework\Command;
 
-use Cicada\Core\Checkout\Customer\Aggregate\CustomerGroup\CustomerGroupDefinition;
-use Cicada\Core\Checkout\Customer\CustomerDefinition;
-use Cicada\Core\Checkout\Order\OrderDefinition;
-use Cicada\Core\Checkout\Payment\PaymentMethodDefinition;
-use Cicada\Core\Checkout\Promotion\PromotionDefinition;
-use Cicada\Core\Checkout\Shipping\ShippingMethodDefinition;
-use Cicada\Core\Content\Cms\CmsPageDefinition;
-use Cicada\Core\Content\LandingPage\LandingPageDefinition;
-use Cicada\Core\Content\Media\MediaDefinition;
-use Cicada\Core\Content\Product\Aggregate\ProductManufacturer\ProductManufacturerDefinition;
-use Cicada\Core\Content\Product\ProductDefinition;
-use Cicada\Core\Content\Property\PropertyGroupDefinition;
-use Cicada\Core\Framework\Adapter\Console\CicadaStyle;
-use Cicada\Core\Framework\Context;
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Core\System\SalesChannel\SalesChannelDefinition;
-use Cicada\Elasticsearch\Admin\AdminSearcher;
+use Shopware\Core\Checkout\Customer\Aggregate\CustomerGroup\CustomerGroupDefinition;
+use Shopware\Core\Checkout\Customer\CustomerDefinition;
+use Shopware\Core\Checkout\Order\OrderDefinition;
+use Shopware\Core\Checkout\Payment\PaymentMethodDefinition;
+use Shopware\Core\Checkout\Promotion\PromotionDefinition;
+use Shopware\Core\Checkout\Shipping\ShippingMethodDefinition;
+use Shopware\Core\Content\Cms\CmsPageDefinition;
+use Shopware\Core\Content\LandingPage\LandingPageDefinition;
+use Shopware\Core\Content\Media\MediaDefinition;
+use Shopware\Core\Content\Product\Aggregate\ProductManufacturer\ProductManufacturerDefinition;
+use Shopware\Core\Content\Product\ProductDefinition;
+use Shopware\Core\Content\Property\PropertyGroupDefinition;
+use Shopware\Core\Framework\Adapter\Console\ShopwareStyle;
+use Shopware\Core\Framework\Context;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Core\System\SalesChannel\SalesChannelDefinition;
+use Shopware\Elasticsearch\Admin\AdminSearcher;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -56,7 +56,7 @@ final class ElasticsearchAdminTestCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $this->io = new CicadaStyle($input, $output);
+        $this->io = new ShopwareStyle($input, $output);
 
         $term = $input->getArgument('term');
         $entities = [

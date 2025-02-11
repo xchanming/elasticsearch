@@ -1,16 +1,17 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Framework\Indexing;
+namespace Shopware\Elasticsearch\Framework\Indexing;
 
-use Cicada\Core\Framework\DataAbstractionLayer\EntityRepository;
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Core\Framework\MessageQueue\ScheduledTask\ScheduledTaskHandler;
-use Cicada\Elasticsearch\Framework\ElasticsearchHelper;
-use Cicada\Elasticsearch\Framework\Indexing\Event\ElasticsearchIndexAliasSwitchedEvent;
 use Doctrine\DBAL\Connection;
 use OpenSearch\Client;
 use Psr\EventDispatcher\EventDispatcherInterface;
 use Psr\Log\LoggerInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Core\Framework\MessageQueue\ScheduledTask\ScheduledTaskCollection;
+use Shopware\Core\Framework\MessageQueue\ScheduledTask\ScheduledTaskHandler;
+use Shopware\Elasticsearch\Framework\ElasticsearchHelper;
+use Shopware\Elasticsearch\Framework\Indexing\Event\ElasticsearchIndexAliasSwitchedEvent;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 
 /**
@@ -25,6 +26,7 @@ class CreateAliasTaskHandler extends ScheduledTaskHandler
     /**
      * @internal
      *
+     * @param EntityRepository<ScheduledTaskCollection> $scheduledTaskRepository
      * @param array<mixed> $config
      */
     public function __construct(

@@ -1,17 +1,17 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Event;
+namespace Shopware\Elasticsearch\Event;
 
-use Cicada\Core\Framework\Context;
-use Cicada\Core\Framework\Event\CicadaEvent;
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Core\System\CustomField\CustomFieldTypes;
+use Shopware\Core\Framework\Context;
+use Shopware\Core\Framework\Event\ShopwareEvent;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Core\System\CustomField\CustomFieldTypes;
 
 /**
  * @internal
  */
 #[Package('framework')]
-class ElasticsearchCustomFieldsMappingEvent implements CicadaEvent
+class ElasticsearchCustomFieldsMappingEvent implements ShopwareEvent
 {
     /**
      * @param array<string, string> $mapping

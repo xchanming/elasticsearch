@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\DependencyInjection;
+namespace Shopware\Elasticsearch\DependencyInjection;
 
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Core\Framework\Migration\MigrationSource;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Core\Framework\Migration\MigrationSource;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
@@ -21,7 +21,7 @@ class ElasticsearchMigrationCompilerPass implements CompilerPassInterface
 
             if (\is_dir($migrationPathV5)) {
                 $migrationSource = $container->getDefinition(MigrationSource::class . '.core.' . $major);
-                $migrationSource->addMethodCall('addDirectory', [$migrationPathV5, 'Cicada\Elasticsearch\Migration\\' . $major]);
+                $migrationSource->addMethodCall('addDirectory', [$migrationPathV5, 'Shopware\Elasticsearch\Migration\\' . $major]);
             }
         }
     }

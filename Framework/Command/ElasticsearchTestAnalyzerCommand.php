@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Framework\Command;
+namespace Shopware\Elasticsearch\Framework\Command;
 
-use Cicada\Core\Framework\Adapter\Console\CicadaStyle;
-use Cicada\Core\Framework\Log\Package;
 use OpenSearch\Client;
+use Shopware\Core\Framework\Adapter\Console\ShopwareStyle;
+use Shopware\Core\Framework\Log\Package;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -18,7 +18,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 #[Package('framework')]
 class ElasticsearchTestAnalyzerCommand extends Command
 {
-    private ?CicadaStyle $io = null;
+    private ?ShopwareStyle $io = null;
 
     /**
      * @internal
@@ -39,7 +39,7 @@ class ElasticsearchTestAnalyzerCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $this->io = new CicadaStyle($input, $output);
+        $this->io = new ShopwareStyle($input, $output);
 
         $term = $input->getArgument('term');
 

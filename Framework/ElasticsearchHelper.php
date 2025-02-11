@@ -1,20 +1,20 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Framework;
+namespace Shopware\Elasticsearch\Framework;
 
-use Cicada\Core\Framework\Context;
-use Cicada\Core\Framework\DataAbstractionLayer\EntityDefinition;
-use Cicada\Core\Framework\DataAbstractionLayer\Search\Criteria;
-use Cicada\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsAnyFilter;
-use Cicada\Core\Framework\DataAbstractionLayer\Search\Filter\MultiFilter;
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Elasticsearch\ElasticsearchException;
-use Cicada\Elasticsearch\Framework\DataAbstractionLayer\CriteriaParser;
 use OpenSearch\Client;
 use OpenSearchDSL\Query\Compound\BoolQuery;
 use OpenSearchDSL\Query\FullText\MatchQuery;
 use OpenSearchDSL\Search;
 use Psr\Log\LoggerInterface;
+use Shopware\Core\Framework\Context;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityDefinition;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsAnyFilter;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\MultiFilter;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Elasticsearch\ElasticsearchException;
+use Shopware\Elasticsearch\Framework\DataAbstractionLayer\CriteriaParser;
 
 #[Package('framework')]
 class ElasticsearchHelper

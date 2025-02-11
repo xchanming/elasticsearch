@@ -1,17 +1,17 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Product;
+namespace Shopware\Elasticsearch\Product;
 
-use Cicada\Core\Framework\DataAbstractionLayer\Doctrine\FetchModeHelper;
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Core\Framework\Uuid\Uuid;
 use Doctrine\DBAL\ArrayParameterType;
 use Doctrine\DBAL\Connection;
+use Shopware\Core\Framework\DataAbstractionLayer\Doctrine\FetchModeHelper;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Core\Framework\Uuid\Uuid;
 
 /**
  * @internal
  *
- * @codeCoverageIgnore Integration tested with \Cicada\Tests\Integration\Elasticsearch\Product\CustomFieldSetGatewayTest
+ * @codeCoverageIgnore Integration tested with \Shopware\Tests\Integration\Elasticsearch\Product\CustomFieldSetGatewayTest
  */
 #[Package('framework')]
 class CustomFieldSetGateway

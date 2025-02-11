@@ -1,14 +1,14 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Admin;
+namespace Shopware\Elasticsearch\Admin;
 
-use Cicada\Core\Framework\Api\Serializer\JsonEntityEncoder;
-use Cicada\Core\Framework\Context;
-use Cicada\Core\Framework\DataAbstractionLayer\DefinitionInstanceRegistry;
-use Cicada\Core\Framework\DataAbstractionLayer\Entity;
-use Cicada\Core\Framework\DataAbstractionLayer\EntityCollection;
-use Cicada\Core\Framework\DataAbstractionLayer\Search\Criteria;
-use Cicada\Core\Framework\Log\Package;
+use Shopware\Core\Framework\Api\Serializer\JsonEntityEncoder;
+use Shopware\Core\Framework\Context;
+use Shopware\Core\Framework\DataAbstractionLayer\DefinitionInstanceRegistry;
+use Shopware\Core\Framework\DataAbstractionLayer\Entity;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityCollection;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
+use Shopware\Core\Framework\Log\Package;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

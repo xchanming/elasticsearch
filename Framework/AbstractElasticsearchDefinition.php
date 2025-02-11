@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Framework;
+namespace Shopware\Elasticsearch\Framework;
 
-use Cicada\Core\Framework\Context;
-use Cicada\Core\Framework\DataAbstractionLayer\Dbal\Common\IterableQuery;
-use Cicada\Core\Framework\DataAbstractionLayer\EntityDefinition;
-use Cicada\Core\Framework\DataAbstractionLayer\Search\Criteria;
-use Cicada\Core\Framework\Log\Package;
-use OpenSearchDSL\Query\Compound\BoolQuery;
+use OpenSearchDSL\BuilderInterface;
+use Shopware\Core\Framework\Context;
+use Shopware\Core\Framework\DataAbstractionLayer\Dbal\Common\IterableQuery;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityDefinition;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
+use Shopware\Core\Framework\Log\Package;
 
 #[Package('framework')]
 abstract class AbstractElasticsearchDefinition
@@ -56,10 +56,7 @@ abstract class AbstractElasticsearchDefinition
         return [];
     }
 
-    /**
-     * @deprecated tag:v6.7.0 - reason:return-type-change - will return BuilderInterface in the future
-     */
-    abstract public function buildTermQuery(Context $context, Criteria $criteria): BoolQuery;
+    abstract public function buildTermQuery(Context $context, Criteria $criteria): BuilderInterface;
 
     /**
      * @return array<string, mixed>

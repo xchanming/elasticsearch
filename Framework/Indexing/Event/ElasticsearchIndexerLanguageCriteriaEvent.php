@@ -1,15 +1,15 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Framework\Indexing\Event;
+namespace Shopware\Elasticsearch\Framework\Indexing\Event;
 
-use Cicada\Core\Framework\Context;
-use Cicada\Core\Framework\DataAbstractionLayer\Search\Criteria;
-use Cicada\Core\Framework\Event\CicadaEvent;
-use Cicada\Core\Framework\Log\Package;
+use Shopware\Core\Framework\Context;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
+use Shopware\Core\Framework\Event\ShopwareEvent;
+use Shopware\Core\Framework\Log\Package;
 use Symfony\Contracts\EventDispatcher\Event;
 
 #[Package('framework')]
-class ElasticsearchIndexerLanguageCriteriaEvent extends Event implements CicadaEvent
+class ElasticsearchIndexerLanguageCriteriaEvent extends Event implements ShopwareEvent
 {
     public function __construct(
         private readonly Criteria $criteria,

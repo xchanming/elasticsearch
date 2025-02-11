@@ -1,20 +1,19 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Framework\Indexing;
+namespace Shopware\Elasticsearch\Framework\Indexing;
 
-use Cicada\Core\Framework\Context;
-use Cicada\Core\Framework\DataAbstractionLayer\Dbal\Common\IteratorFactory;
-use Cicada\Core\Framework\DataAbstractionLayer\EntityDefinition;
-use Cicada\Core\Framework\Feature;
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Core\Framework\Uuid\Uuid;
-use Cicada\Elasticsearch\ElasticsearchException;
-use Cicada\Elasticsearch\Framework\ElasticsearchHelper;
-use Cicada\Elasticsearch\Framework\ElasticsearchRegistry;
-use Cicada\Elasticsearch\Framework\Indexing\Event\ElasticsearchIndexIteratorEvent;
 use Doctrine\DBAL\Connection;
 use OpenSearch\Client;
 use Psr\Log\LoggerInterface;
+use Shopware\Core\Framework\Context;
+use Shopware\Core\Framework\DataAbstractionLayer\Dbal\Common\IteratorFactory;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityDefinition;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Core\Framework\Uuid\Uuid;
+use Shopware\Elasticsearch\ElasticsearchException;
+use Shopware\Elasticsearch\Framework\ElasticsearchHelper;
+use Shopware\Elasticsearch\Framework\ElasticsearchRegistry;
+use Shopware\Elasticsearch\Framework\Indexing\Event\ElasticsearchIndexIteratorEvent;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 
@@ -267,10 +266,7 @@ class ElasticsearchIndexer
         }
 
         if ($documents === []) {
-            if (Feature::isActive('v6.7.0.0')) {
-                throw ElasticsearchException::emptyIndexingRequest();
-            }
-            Feature::triggerDeprecationOrThrow('v6.7.0.0', 'Since v6.7.0.0 ElasticsearchException will be thrown if no documents are provided for indexing.');
+            throw ElasticsearchException::emptyIndexingRequest();
         }
 
         $arguments = [

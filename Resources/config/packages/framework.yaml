@@ -4,5 +4,5 @@ framework:
             symfony_serializer:
                 context:
                     default_constructor_arguments:
-                        Cicada\Elasticsearch\Framework\Indexing\IndexerOffset:
+                        Shopware\Elasticsearch\Framework\Indexing\IndexerOffset:
                             mappingDefinitions: [ ]

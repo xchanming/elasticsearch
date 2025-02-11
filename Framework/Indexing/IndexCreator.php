@@ -1,14 +1,14 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Framework\Indexing;
+namespace Shopware\Elasticsearch\Framework\Indexing;
 
-use Cicada\Core\Framework\Context;
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Elasticsearch\Framework\AbstractElasticsearchDefinition;
-use Cicada\Elasticsearch\Framework\Indexing\Event\ElasticsearchIndexConfigEvent;
-use Cicada\Elasticsearch\Framework\Indexing\Event\ElasticsearchIndexCreatedEvent;
 use OpenSearch\Client;
 use Psr\EventDispatcher\EventDispatcherInterface;
+use Shopware\Core\Framework\Context;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Elasticsearch\Framework\AbstractElasticsearchDefinition;
+use Shopware\Elasticsearch\Framework\Indexing\Event\ElasticsearchIndexConfigEvent;
+use Shopware\Elasticsearch\Framework\Indexing\Event\ElasticsearchIndexCreatedEvent;
 
 #[Package('framework')]
 class IndexCreator

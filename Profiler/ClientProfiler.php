@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Profiler;
+namespace Shopware\Elasticsearch\Profiler;
 
-use Cicada\Core\Framework\Log\Package;
 use OpenSearch\Client;
 use OpenSearch\Connections\ConnectionInterface;
 use OpenSearch\Namespaces\NamespaceBuilderInterface;
+use Shopware\Core\Framework\Log\Package;
 
 /**
  * @phpstan-type RequestInfo array{url: string, request: array<mixed>, response: array<mixed>, time: float, backtrace: string}

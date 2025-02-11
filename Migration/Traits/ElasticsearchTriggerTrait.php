@@ -1,14 +1,14 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Migration\Traits;
+namespace Shopware\Elasticsearch\Migration\Traits;
 
-use Cicada\Elasticsearch\Framework\SystemUpdateListener;
 use Doctrine\DBAL\Connection;
+use Shopware\Elasticsearch\Framework\SystemUpdateListener;
 
 trait ElasticsearchTriggerTrait
 {
     /**
-     * This method triggers Elasticsearch indexing after Cicada Update
+     * This method triggers Elasticsearch indexing after Shopware Update
      */
     public function triggerElasticsearchIndexing(Connection $connection): void
     {

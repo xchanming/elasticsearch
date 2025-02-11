@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch;
+namespace Shopware\Elasticsearch;
 
-use Cicada\Core\Framework\HttpException;
-use Cicada\Core\Framework\Log\Package;
+use Shopware\Core\Framework\HttpException;
+use Shopware\Core\Framework\Log\Package;
 use Symfony\Component\HttpFoundation\Response;
 
 #[Package('framework')]

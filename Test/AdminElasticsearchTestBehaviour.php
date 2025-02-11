@@ -1,16 +1,16 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Test;
+namespace Shopware\Elasticsearch\Test;
 
-use Cicada\Core\DevOps\Environment\EnvironmentHelper;
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Elasticsearch\Admin\AdminElasticsearchHelper;
-use Cicada\Elasticsearch\Framework\Command\ElasticsearchAdminIndexingCommand;
-use Cicada\Elasticsearch\Framework\ElasticsearchHelper;
 use Doctrine\DBAL\Connection;
 use OpenSearch\Client;
 use PHPUnit\Framework\Attributes\After;
 use PHPUnit\Framework\Attributes\Before;
+use Shopware\Core\DevOps\Environment\EnvironmentHelper;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Elasticsearch\Admin\AdminElasticsearchHelper;
+use Shopware\Elasticsearch\Framework\Command\ElasticsearchAdminIndexingCommand;
+use Shopware\Elasticsearch\Framework\ElasticsearchHelper;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\NullOutput;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -81,7 +81,7 @@ trait AdminElasticsearchTestBehaviour
 
         $client = $c->get(Client::class);
 
-        $indices = $client->indices()->get(['index' => EnvironmentHelper::getVariable('CICADA_ADMIN_ES_INDEX_PREFIX') . '*']);
+        $indices = $client->indices()->get(['index' => EnvironmentHelper::getVariable('SHOPWARE_ADMIN_ES_INDEX_PREFIX') . '*']);
 
         foreach ($indices as $index) {
             $client->indices()->delete(['index' => $index['settings']['index']['provided_name']]);

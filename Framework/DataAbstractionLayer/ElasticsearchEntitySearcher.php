@@ -1,24 +1,24 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Framework\DataAbstractionLayer;
+namespace Shopware\Elasticsearch\Framework\DataAbstractionLayer;
 
-use Cicada\Core\Framework\Context;
-use Cicada\Core\Framework\DataAbstractionLayer\EntityDefinition;
-use Cicada\Core\Framework\DataAbstractionLayer\Search\Criteria;
-use Cicada\Core\Framework\DataAbstractionLayer\Search\EntitySearcherInterface;
-use Cicada\Core\Framework\DataAbstractionLayer\Search\Filter\MultiFilter;
-use Cicada\Core\Framework\DataAbstractionLayer\Search\Grouping\FieldGrouping;
-use Cicada\Core\Framework\DataAbstractionLayer\Search\IdSearchResult;
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Elasticsearch\ElasticsearchException;
-use Cicada\Elasticsearch\Framework\DataAbstractionLayer\Event\ElasticsearchEntitySearcherSearchedEvent;
-use Cicada\Elasticsearch\Framework\DataAbstractionLayer\Event\ElasticsearchEntitySearcherSearchEvent;
-use Cicada\Elasticsearch\Framework\ElasticsearchHelper;
 use OpenSearch\Client;
 use OpenSearchDSL\Aggregation\AbstractAggregation;
 use OpenSearchDSL\Aggregation\Bucketing\FilterAggregation;
 use OpenSearchDSL\Aggregation\Metric\CardinalityAggregation;
 use OpenSearchDSL\Search;
+use Shopware\Core\Framework\Context;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityDefinition;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\EntitySearcherInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\MultiFilter;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Grouping\FieldGrouping;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\IdSearchResult;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Elasticsearch\ElasticsearchException;
+use Shopware\Elasticsearch\Framework\DataAbstractionLayer\Event\ElasticsearchEntitySearcherSearchedEvent;
+use Shopware\Elasticsearch\Framework\DataAbstractionLayer\Event\ElasticsearchEntitySearcherSearchEvent;
+use Shopware\Elasticsearch\Framework\ElasticsearchHelper;
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 
 #[Package('framework')]

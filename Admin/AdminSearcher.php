@@ -1,17 +1,17 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Admin;
+namespace Shopware\Elasticsearch\Admin;
 
-use Cicada\Core\Framework\Api\Acl\Role\AclRoleDefinition;
-use Cicada\Core\Framework\Context;
-use Cicada\Core\Framework\DataAbstractionLayer\Entity;
-use Cicada\Core\Framework\DataAbstractionLayer\EntityCollection;
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Elasticsearch\ElasticsearchException;
 use OpenSearch\Client;
 use OpenSearchDSL\Query\Compound\BoolQuery;
 use OpenSearchDSL\Query\FullText\SimpleQueryStringQuery;
 use OpenSearchDSL\Search;
+use Shopware\Core\Framework\Api\Acl\Role\AclRoleDefinition;
+use Shopware\Core\Framework\Context;
+use Shopware\Core\Framework\DataAbstractionLayer\Entity;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityCollection;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Elasticsearch\ElasticsearchException;
 
 /**
  * @internal
@@ -33,7 +33,7 @@ class AdminSearcher
     /**
      * @param array<string> $entities
      *
-     * @return array<string, array{total: int, data:EntityCollection<Entity>, indexer: string, index: string}>
+     * @return array<string, array{total: int, data: EntityCollection<covariant Entity>, indexer: string, index: string}>
      */
     public function search(string $term, array $entities, Context $context, int $limit = 5): array
     {

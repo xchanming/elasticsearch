@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Product;
+namespace Shopware\Elasticsearch\Product;
 
-use Cicada\Core\Content\Product\DataAbstractionLayer\SearchKeywordUpdater;
-use Cicada\Core\Framework\Context;
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Elasticsearch\Framework\ElasticsearchHelper;
+use Shopware\Core\Content\Product\DataAbstractionLayer\SearchKeywordUpdater;
+use Shopware\Core\Framework\Context;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Elasticsearch\Framework\ElasticsearchHelper;
 
 #[Package('framework')]
 class SearchKeywordReplacement extends SearchKeywordUpdater

@@ -1,24 +1,27 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Admin\Indexer;
+namespace Shopware\Elasticsearch\Admin\Indexer;
 
-use Cicada\Core\Checkout\Shipping\ShippingMethodDefinition;
-use Cicada\Core\Framework\Context;
-use Cicada\Core\Framework\DataAbstractionLayer\Dbal\Common\IterableQuery;
-use Cicada\Core\Framework\DataAbstractionLayer\Dbal\Common\IteratorFactory;
-use Cicada\Core\Framework\DataAbstractionLayer\EntityRepository;
-use Cicada\Core\Framework\DataAbstractionLayer\Search\Criteria;
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Core\Framework\Plugin\Exception\DecorationPatternException;
-use Cicada\Core\Framework\Uuid\Uuid;
 use Doctrine\DBAL\ArrayParameterType;
 use Doctrine\DBAL\Connection;
+use Shopware\Core\Checkout\Shipping\ShippingMethodCollection;
+use Shopware\Core\Checkout\Shipping\ShippingMethodDefinition;
+use Shopware\Core\Framework\Context;
+use Shopware\Core\Framework\DataAbstractionLayer\Dbal\Common\IterableQuery;
+use Shopware\Core\Framework\DataAbstractionLayer\Dbal\Common\IteratorFactory;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Core\Framework\Plugin\Exception\DecorationPatternException;
+use Shopware\Core\Framework\Uuid\Uuid;
 
 #[Package('inventory')]
 final class ShippingMethodAdminSearchIndexer extends AbstractAdminIndexer
 {
     /**
      * @internal
+     *
+     * @param EntityRepository<ShippingMethodCollection> $repository
      */
     public function __construct(
         private readonly Connection $connection,

@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Migration\V6_5;
+namespace Shopware\Elasticsearch\Migration\V6_5;
 
-use Cicada\Core\Framework\DataAbstractionLayer\Dbal\EntityDefinitionQueryHelper;
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Core\Framework\Migration\MigrationStep;
 use Doctrine\DBAL\Connection;
+use Shopware\Core\Framework\DataAbstractionLayer\Dbal\EntityDefinitionQueryHelper;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Core\Framework\Migration\MigrationStep;
 
 /**
  * @internal

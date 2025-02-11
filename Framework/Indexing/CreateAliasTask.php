@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Framework\Indexing;
+namespace Shopware\Elasticsearch\Framework\Indexing;
 
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Core\Framework\MessageQueue\ScheduledTask\ScheduledTask;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Core\Framework\MessageQueue\ScheduledTask\ScheduledTask;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 #[Package('framework')]
@@ -11,7 +11,7 @@ class CreateAliasTask extends ScheduledTask
 {
     public static function getTaskName(): string
     {
-        return 'cicada.elasticsearch.create.alias';
+        return 'shopware.elasticsearch.create.alias';
     }
 
     public static function getDefaultInterval(): int

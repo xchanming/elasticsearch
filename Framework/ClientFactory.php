@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Framework;
+namespace Shopware\Elasticsearch\Framework;
 
 use AsyncAws\Core\Configuration;
 use AsyncAws\Core\Credentials\ChainProvider;
-use Cicada\Core\Framework\Log\Package;
 use OpenSearch\Client;
 use OpenSearch\ClientBuilder;
 use Psr\Log\LoggerInterface;
+use Shopware\Core\Framework\Log\Package;
 
 #[Package('framework')]
 class ClientFactory

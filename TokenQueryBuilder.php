@@ -1,23 +1,7 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch;
+namespace Shopware\Elasticsearch;
 
-use Cicada\Core\Framework\Context;
-use Cicada\Core\Framework\DataAbstractionLayer\Dbal\EntityDefinitionQueryHelper;
-use Cicada\Core\Framework\DataAbstractionLayer\DefinitionInstanceRegistry;
-use Cicada\Core\Framework\DataAbstractionLayer\Field\Field;
-use Cicada\Core\Framework\DataAbstractionLayer\Field\FloatField;
-use Cicada\Core\Framework\DataAbstractionLayer\Field\IntField;
-use Cicada\Core\Framework\DataAbstractionLayer\Field\ListField;
-use Cicada\Core\Framework\DataAbstractionLayer\Field\LongTextField;
-use Cicada\Core\Framework\DataAbstractionLayer\Field\PriceField;
-use Cicada\Core\Framework\DataAbstractionLayer\Field\StringField;
-use Cicada\Core\Framework\DataAbstractionLayer\Field\TranslatedField;
-use Cicada\Core\Framework\Feature;
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Core\System\CustomField\CustomFieldService;
-use Cicada\Elasticsearch\Framework\DataAbstractionLayer\ElasticsearchEntitySearcher;
-use Cicada\Elasticsearch\Product\SearchFieldConfig;
 use OpenSearchDSL\BuilderInterface;
 use OpenSearchDSL\Query\Compound\BoolQuery;
 use OpenSearchDSL\Query\Compound\DisMaxQuery;
@@ -25,11 +9,26 @@ use OpenSearchDSL\Query\FullText\MatchPhrasePrefixQuery;
 use OpenSearchDSL\Query\FullText\MatchQuery;
 use OpenSearchDSL\Query\Joining\NestedQuery;
 use OpenSearchDSL\Query\TermLevel\TermQuery;
+use Shopware\Core\Framework\Context;
+use Shopware\Core\Framework\DataAbstractionLayer\Dbal\EntityDefinitionQueryHelper;
+use Shopware\Core\Framework\DataAbstractionLayer\DefinitionInstanceRegistry;
+use Shopware\Core\Framework\DataAbstractionLayer\Field\Field;
+use Shopware\Core\Framework\DataAbstractionLayer\Field\FloatField;
+use Shopware\Core\Framework\DataAbstractionLayer\Field\IntField;
+use Shopware\Core\Framework\DataAbstractionLayer\Field\ListField;
+use Shopware\Core\Framework\DataAbstractionLayer\Field\LongTextField;
+use Shopware\Core\Framework\DataAbstractionLayer\Field\PriceField;
+use Shopware\Core\Framework\DataAbstractionLayer\Field\StringField;
+use Shopware\Core\Framework\DataAbstractionLayer\Field\TranslatedField;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Core\System\CustomField\CustomFieldService;
+use Shopware\Elasticsearch\Framework\DataAbstractionLayer\ElasticsearchEntitySearcher;
+use Shopware\Elasticsearch\Product\SearchFieldConfig;
 
 /**
  * @phpstan-type SearchConfig array{and_logic: string, field: string, tokenize: int, ranking: float|int}
  *
- * @deprecated tag:v6.7.0 - reason:becomes-final
+ * @final
  */
 #[Package('framework')]
 class TokenQueryBuilder
@@ -45,24 +44,11 @@ class TokenQueryBuilder
 
     /**
      * @param SearchFieldConfig[] $configs
-     * @param Context|string[] $context
-     *
-     * @deprecated tag:v6.7.0 - $context will be typed as Context only
      */
-    public function build(string $entity, string $token, array $configs, array|Context $context): ?BuilderInterface
+    public function build(string $entity, string $token, array $configs, Context $context): ?BuilderInterface
     {
-        $explainMode = false;
-
-        if (\is_array($context)) {
-            Feature::triggerDeprecationOrThrow('v6.7.0.0', 'The $context is now a Context object');
-        }
-
-        if ($context instanceof Context) {
-            $languageIdChain = $context->getLanguageIdChain();
-            $explainMode = $context->hasState(ElasticsearchEntitySearcher::EXPLAIN_MODE);
-        } else {
-            $languageIdChain = $context;
-        }
+        $languageIdChain = $context->getLanguageIdChain();
+        $explainMode = $context->hasState(ElasticsearchEntitySearcher::EXPLAIN_MODE);
 
         $tokenQueries = [];
 

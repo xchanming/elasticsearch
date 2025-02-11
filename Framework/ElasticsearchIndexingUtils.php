@@ -1,19 +1,19 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Framework;
+namespace Shopware\Elasticsearch\Framework;
 
-use Cicada\Core\Framework\Context;
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Elasticsearch\Event\ElasticsearchCustomFieldsMappingEvent;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Exception;
+use Shopware\Core\Framework\Context;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Elasticsearch\Event\ElasticsearchCustomFieldsMappingEvent;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
  * @final
  */
-#[Package('buyers-experience')]
+#[Package('inventory')]
 class ElasticsearchIndexingUtils
 {
     public const TEXT_MAX_LENGTH = 32766;

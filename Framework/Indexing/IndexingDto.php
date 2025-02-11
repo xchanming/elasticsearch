@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Framework\Indexing;
+namespace Shopware\Elasticsearch\Framework\Indexing;
 
-use Cicada\Core\Framework\Log\Package;
+use Shopware\Core\Framework\Log\Package;
 
 #[Package('framework')]
 class IndexingDto

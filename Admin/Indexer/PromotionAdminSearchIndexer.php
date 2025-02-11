@@ -1,18 +1,19 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Admin\Indexer;
+namespace Shopware\Elasticsearch\Admin\Indexer;
 
-use Cicada\Core\Checkout\Promotion\PromotionDefinition;
-use Cicada\Core\Framework\Context;
-use Cicada\Core\Framework\DataAbstractionLayer\Dbal\Common\IterableQuery;
-use Cicada\Core\Framework\DataAbstractionLayer\Dbal\Common\IteratorFactory;
-use Cicada\Core\Framework\DataAbstractionLayer\EntityRepository;
-use Cicada\Core\Framework\DataAbstractionLayer\Search\Criteria;
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Core\Framework\Plugin\Exception\DecorationPatternException;
-use Cicada\Core\Framework\Uuid\Uuid;
 use Doctrine\DBAL\ArrayParameterType;
 use Doctrine\DBAL\Connection;
+use Shopware\Core\Checkout\Promotion\PromotionCollection;
+use Shopware\Core\Checkout\Promotion\PromotionDefinition;
+use Shopware\Core\Framework\Context;
+use Shopware\Core\Framework\DataAbstractionLayer\Dbal\Common\IterableQuery;
+use Shopware\Core\Framework\DataAbstractionLayer\Dbal\Common\IteratorFactory;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Core\Framework\Plugin\Exception\DecorationPatternException;
+use Shopware\Core\Framework\Uuid\Uuid;
 
 /**
  * @final
@@ -22,6 +23,8 @@ class PromotionAdminSearchIndexer extends AbstractAdminIndexer
 {
     /**
      * @internal
+     *
+     * @param EntityRepository<PromotionCollection> $repository
      */
     public function __construct(
         private readonly Connection $connection,

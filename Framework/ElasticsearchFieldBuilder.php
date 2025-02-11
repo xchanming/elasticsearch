@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Framework;
+namespace Shopware\Elasticsearch\Framework;
 
-use Cicada\Core\Framework\Context;
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Core\System\Language\LanguageLoaderInterface;
-use Cicada\Elasticsearch\Product\CustomFieldUpdater;
+use Shopware\Core\Framework\Context;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Core\System\Language\LanguageLoaderInterface;
+use Shopware\Elasticsearch\Product\CustomFieldUpdater;
 
-#[Package('buyers-experience')]
+#[Package('inventory')]
 class ElasticsearchFieldBuilder
 {
     /**

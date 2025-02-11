@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Product;
+namespace Shopware\Elasticsearch\Product;
 
-use Cicada\Core\Framework\Context;
-use Cicada\Core\Framework\DataAbstractionLayer\Search\Term\Filter\AbstractTokenFilter;
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Core\Framework\Plugin\Exception\DecorationPatternException;
-use Cicada\Core\Framework\Uuid\Uuid;
 use Doctrine\DBAL\Connection;
+use Shopware\Core\Framework\Context;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Term\Filter\AbstractTokenFilter;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Core\Framework\Plugin\Exception\DecorationPatternException;
+use Shopware\Core\Framework\Uuid\Uuid;
 
 #[Package('framework')]
 class StopwordTokenFilter extends AbstractTokenFilter

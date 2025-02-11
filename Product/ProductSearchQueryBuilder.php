@@ -1,18 +1,19 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Product;
+namespace Shopware\Elasticsearch\Product;
 
-use Cicada\Core\Framework\Context;
-use Cicada\Core\Framework\DataAbstractionLayer\EntityDefinition;
-use Cicada\Core\Framework\DataAbstractionLayer\Search\Criteria;
-use Cicada\Core\Framework\DataAbstractionLayer\Search\Term\Filter\AbstractTokenFilter;
-use Cicada\Core\Framework\DataAbstractionLayer\Search\Term\TokenizerInterface;
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Core\Framework\Plugin\Exception\DecorationPatternException;
-use Cicada\Elasticsearch\ElasticsearchException;
-use Cicada\Elasticsearch\TokenQueryBuilder;
+use OpenSearchDSL\BuilderInterface;
 use OpenSearchDSL\Query\Compound\BoolQuery;
 use OpenSearchDSL\Query\Compound\DisMaxQuery;
+use Shopware\Core\Framework\Context;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityDefinition;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Term\Filter\AbstractTokenFilter;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Term\TokenizerInterface;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Core\Framework\Plugin\Exception\DecorationPatternException;
+use Shopware\Elasticsearch\ElasticsearchException;
+use Shopware\Elasticsearch\TokenQueryBuilder;
 
 /**
  * @phpstan-type SearchConfig array{and_logic: string, field: string, tokenize: int, ranking: int}
@@ -37,7 +38,7 @@ class ProductSearchQueryBuilder extends AbstractProductSearchQueryBuilder
         throw new DecorationPatternException(self::class);
     }
 
-    public function build(Criteria $criteria, Context $context): BoolQuery
+    public function build(Criteria $criteria, Context $context): BuilderInterface
     {
         $originalTerm = mb_strtolower((string) $criteria->getTerm());
 
@@ -110,9 +111,6 @@ class ProductSearchQueryBuilder extends AbstractProductSearchQueryBuilder
         $dismax->addQuery($tokensQuery);
         $dismax->addQuery($originalTermQuery);
 
-        // @deprecated tag:v6.7.0 - will just return $dismax when return type is changed to BuilderInterface
-        return new BoolQuery([
-            BoolQuery::MUST => [$dismax],
-        ]);
+        return $dismax;
     }
 }

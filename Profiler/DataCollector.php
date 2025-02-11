@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Profiler;
+namespace Shopware\Elasticsearch\Profiler;
 
-use Cicada\Core\Framework\Api\Context\AdminApiSource;
-use Cicada\Core\Framework\Context;
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Core\PlatformRequest;
+use Shopware\Core\Framework\Api\Context\AdminApiSource;
+use Shopware\Core\Framework\Context;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Core\PlatformRequest;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\DataCollector\DataCollector as BaseDataCollector;

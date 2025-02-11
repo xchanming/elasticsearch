@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch;
+namespace Shopware\Elasticsearch;
 
-use Cicada\Core\Framework\Bundle;
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Elasticsearch\DependencyInjection\ElasticsearchExtension;
-use Cicada\Elasticsearch\DependencyInjection\ElasticsearchMigrationCompilerPass;
-use Cicada\Elasticsearch\Profiler\ElasticsearchProfileCompilerPass;
+use Shopware\Core\Framework\Bundle;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Elasticsearch\DependencyInjection\ElasticsearchExtension;
+use Shopware\Elasticsearch\DependencyInjection\ElasticsearchMigrationCompilerPass;
+use Shopware\Elasticsearch\Profiler\ElasticsearchProfileCompilerPass;
 use Symfony\Component\DependencyInjection\Compiler\PassConfig;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;

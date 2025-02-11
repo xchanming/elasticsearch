@@ -1,22 +1,22 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Product;
+namespace Shopware\Elasticsearch\Product;
 
-use Cicada\Core\Content\Product\ProductDefinition;
-use Cicada\Core\Framework\Context;
-use Cicada\Core\Framework\DataAbstractionLayer\Dbal\SqlHelper;
-use Cicada\Core\Framework\DataAbstractionLayer\EntityDefinition;
-use Cicada\Core\Framework\DataAbstractionLayer\Search\Criteria;
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Core\Framework\Uuid\Uuid;
-use Cicada\Core\System\Language\SalesChannelLanguageLoader;
-use Cicada\Elasticsearch\Framework\AbstractElasticsearchDefinition;
-use Cicada\Elasticsearch\Framework\ElasticsearchFieldBuilder;
-use Cicada\Elasticsearch\Framework\ElasticsearchFieldMapper;
-use Cicada\Elasticsearch\Framework\ElasticsearchIndexingUtils;
 use Doctrine\DBAL\ArrayParameterType;
 use Doctrine\DBAL\Connection;
-use OpenSearchDSL\Query\Compound\BoolQuery;
+use OpenSearchDSL\BuilderInterface;
+use Shopware\Core\Content\Product\ProductDefinition;
+use Shopware\Core\Framework\Context;
+use Shopware\Core\Framework\DataAbstractionLayer\Dbal\SqlHelper;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityDefinition;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Core\Framework\Uuid\Uuid;
+use Shopware\Core\System\Language\SalesChannelLanguageLoader;
+use Shopware\Elasticsearch\Framework\AbstractElasticsearchDefinition;
+use Shopware\Elasticsearch\Framework\ElasticsearchFieldBuilder;
+use Shopware\Elasticsearch\Framework\ElasticsearchFieldMapper;
+use Shopware\Elasticsearch\Framework\ElasticsearchIndexingUtils;
 
 /**
  * @internal
@@ -150,7 +150,7 @@ class ElasticsearchProductDefinition extends AbstractElasticsearchDefinition
     /**
      * {@inheritdoc}
      */
-    public function buildTermQuery(Context $context, Criteria $criteria): BoolQuery
+    public function buildTermQuery(Context $context, Criteria $criteria): BuilderInterface
     {
         return $this->searchQueryBuilder->build($criteria, $context);
     }

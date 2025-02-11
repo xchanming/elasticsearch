@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Admin\Subscriber;
+namespace Shopware\Elasticsearch\Admin\Subscriber;
 
-use Cicada\Core\Framework\DataAbstractionLayer\Event\RefreshIndexEvent;
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Elasticsearch\Admin\AdminIndexingBehavior;
-use Cicada\Elasticsearch\Admin\AdminSearchRegistry;
+use Shopware\Core\Framework\DataAbstractionLayer\Event\RefreshIndexEvent;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Elasticsearch\Admin\AdminIndexingBehavior;
+use Shopware\Elasticsearch\Admin\AdminSearchRegistry;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**

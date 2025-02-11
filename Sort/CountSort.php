@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Sort;
+namespace Shopware\Elasticsearch\Sort;
 
-use Cicada\Core\Framework\Log\Package;
 use OpenSearchDSL\BuilderInterface;
 use OpenSearchDSL\Sort\FieldSort;
+use Shopware\Core\Framework\Log\Package;
 
 #[Package('framework')]
 class CountSort extends FieldSort

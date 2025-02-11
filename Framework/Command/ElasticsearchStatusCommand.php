@@ -1,14 +1,14 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Framework\Command;
+namespace Shopware\Elasticsearch\Framework\Command;
 
-use Cicada\Core\Defaults;
-use Cicada\Core\Framework\DataAbstractionLayer\Command\ConsoleProgressTrait;
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Core\Framework\Uuid\Uuid;
-use Cicada\Elasticsearch\ElasticsearchException;
 use Doctrine\DBAL\Connection;
 use OpenSearch\Client;
+use Shopware\Core\Defaults;
+use Shopware\Core\Framework\DataAbstractionLayer\Command\ConsoleProgressTrait;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Core\Framework\Uuid\Uuid;
+use Shopware\Elasticsearch\ElasticsearchException;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\ProgressBar;

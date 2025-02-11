@@ -1,19 +1,19 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Product;
+namespace Shopware\Elasticsearch\Product;
 
-use Cicada\Core\Framework\DataAbstractionLayer\EntityWriteResult;
-use Cicada\Core\Framework\DataAbstractionLayer\Event\EntityWrittenContainerEvent;
-use Cicada\Core\Framework\DataAbstractionLayer\Event\EntityWrittenEvent;
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Core\System\CustomField\Aggregate\CustomFieldSetRelation\CustomFieldSetRelationDefinition;
-use Cicada\Core\System\CustomField\CustomFieldDefinition;
-use Cicada\Core\System\CustomField\CustomFieldTypes;
-use Cicada\Elasticsearch\Framework\AbstractElasticsearchDefinition;
-use Cicada\Elasticsearch\Framework\ElasticsearchHelper;
-use Cicada\Elasticsearch\Framework\ElasticsearchOutdatedIndexDetector;
 use OpenSearch\Client;
 use OpenSearch\Common\Exceptions\BadRequest400Exception;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityWriteResult;
+use Shopware\Core\Framework\DataAbstractionLayer\Event\EntityWrittenContainerEvent;
+use Shopware\Core\Framework\DataAbstractionLayer\Event\EntityWrittenEvent;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Core\System\CustomField\Aggregate\CustomFieldSetRelation\CustomFieldSetRelationDefinition;
+use Shopware\Core\System\CustomField\CustomFieldDefinition;
+use Shopware\Core\System\CustomField\CustomFieldTypes;
+use Shopware\Elasticsearch\Framework\AbstractElasticsearchDefinition;
+use Shopware\Elasticsearch\Framework\ElasticsearchHelper;
+use Shopware\Elasticsearch\Framework\ElasticsearchOutdatedIndexDetector;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**

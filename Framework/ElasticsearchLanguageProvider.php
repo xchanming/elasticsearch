@@ -1,26 +1,30 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Framework;
+namespace Shopware\Elasticsearch\Framework;
 
-use Cicada\Core\Framework\Context;
-use Cicada\Core\Framework\DataAbstractionLayer\EntityRepository;
-use Cicada\Core\Framework\DataAbstractionLayer\Search\Criteria;
-use Cicada\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
-use Cicada\Core\Framework\DataAbstractionLayer\Search\Filter\NandFilter;
-use Cicada\Core\Framework\DataAbstractionLayer\Search\Sorting\FieldSorting;
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Core\System\Language\LanguageCollection;
-use Cicada\Elasticsearch\Framework\Indexing\Event\ElasticsearchIndexerLanguageCriteriaEvent;
 use Psr\EventDispatcher\EventDispatcherInterface;
+use Shopware\Core\Framework\Context;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\NandFilter;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Sorting\FieldSorting;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Core\System\Language\LanguageCollection;
+use Shopware\Elasticsearch\Framework\Indexing\Event\ElasticsearchIndexerLanguageCriteriaEvent;
 
 #[Package('framework')]
 class ElasticsearchLanguageProvider
 {
     /**
      * @internal
+     *
+     * @param EntityRepository<LanguageCollection> $languageRepository
      */
-    public function __construct(private readonly EntityRepository $languageRepository, private readonly EventDispatcherInterface $eventDispatcher)
-    {
+    public function __construct(
+        private readonly EntityRepository $languageRepository,
+        private readonly EventDispatcherInterface $eventDispatcher
+    ) {
     }
 
     public function getLanguages(Context $context): LanguageCollection
@@ -31,11 +35,6 @@ class ElasticsearchLanguageProvider
 
         $this->eventDispatcher->dispatch(new ElasticsearchIndexerLanguageCriteriaEvent($criteria, $context));
 
-        /** @var LanguageCollection $languages */
-        $languages = $this->languageRepository
-            ->search($criteria, $context)
-            ->getEntities();
-
-        return $languages;
+        return $this->languageRepository->search($criteria, $context)->getEntities();
     }
 }

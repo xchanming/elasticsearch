@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Product;
+namespace Shopware\Elasticsearch\Product;
 
-use Cicada\Core\Framework\HttpException;
-use Cicada\Core\Framework\Log\Package;
 use OpenSearch\Common\Exceptions\BadRequest400Exception;
+use Shopware\Core\Framework\HttpException;
+use Shopware\Core\Framework\Log\Package;
 use Symfony\Component\HttpFoundation\Response;
 
 #[Package('framework')]

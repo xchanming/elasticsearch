@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Framework;
+namespace Shopware\Elasticsearch\Framework;
 
-use Cicada\Core\Framework\Adapter\Storage\AbstractKeyValueStorage;
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Core\Framework\Update\Event\UpdatePostFinishEvent;
-use Cicada\Elasticsearch\Framework\Indexing\ElasticsearchIndexer;
+use Shopware\Core\Framework\Adapter\Storage\AbstractKeyValueStorage;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Core\Framework\Update\Event\UpdatePostFinishEvent;
+use Shopware\Elasticsearch\Framework\Indexing\ElasticsearchIndexer;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 use Symfony\Component\Messenger\MessageBusInterface;
 

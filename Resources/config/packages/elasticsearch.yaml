@@ -1,19 +1,19 @@
 elasticsearch:
-    enabled: "%env(bool:CICADA_ES_ENABLED)%"
-    indexing_enabled: "%env(bool:CICADA_ES_INDEXING_ENABLED)%"
-    indexing_batch_size: "%env(int:CICADA_ES_INDEXING_BATCH_SIZE)%"
+    enabled: "%env(bool:SHOPWARE_ES_ENABLED)%"
+    indexing_enabled: "%env(bool:SHOPWARE_ES_INDEXING_ENABLED)%"
+    indexing_batch_size: "%env(int:SHOPWARE_ES_INDEXING_BATCH_SIZE)%"
     hosts: "%env(string:OPENSEARCH_URL)%"
-    index_prefix: "%env(string:CICADA_ES_INDEX_PREFIX)%"
-    throw_exception: "%env(string:CICADA_ES_THROW_EXCEPTION)%"
+    index_prefix: "%env(string:SHOPWARE_ES_INDEX_PREFIX)%"
+    throw_exception: "%env(string:SHOPWARE_ES_THROW_EXCEPTION)%"
     search:
         timeout: 5s
         term_max_length: 300
         search_type: "query_then_fetch"
     administration:
         hosts: "%env(string:ADMIN_OPENSEARCH_URL)%"
-        enabled: "%env(bool:CICADA_ADMIN_ES_ENABLED)%"
-        refresh_indices: "%env(bool:CICADA_ADMIN_ES_REFRESH_INDICES)%"
-        index_prefix: "%env(string:CICADA_ADMIN_ES_INDEX_PREFIX)%"
+        enabled: "%env(bool:SHOPWARE_ADMIN_ES_ENABLED)%"
+        refresh_indices: "%env(bool:SHOPWARE_ADMIN_ES_REFRESH_INDICES)%"
+        index_prefix: "%env(string:SHOPWARE_ADMIN_ES_INDEX_PREFIX)%"
         search:
             timeout: 5s
             term_max_length: 300
@@ -41,14 +41,12 @@ elasticsearch:
                             type: text
     product:
         custom_fields_mapping:
-        exclude_source: "%env(bool:CICADA_ES_EXCLUDE_SOURCE)%"
+        exclude_source: "%env(bool:SHOPWARE_ES_EXCLUDE_SOURCE)%"
     ssl:
         verify_server_cert: true
     index_settings:
-        # @deprecated tag:v6.7.0 - change default value to null, so the search services define the default value for better scalability
-        number_of_shards: 3
-        # @deprecated tag:v6.7.0 - change default value to null, so the search services define the default value for better scalability
-        number_of_replicas: 3
+        number_of_shards: null
+        number_of_replicas: null
         'mapping.total_fields.limit': 50000
         'mapping.nested_fields.limit': 500
         'mapping.nested_objects.limit': 1000000
@@ -104,14 +102,14 @@ elasticsearch:
 parameters:
     default_elasticsearch_prefix: "sw"
     default_whitespace: " "
-    env(CICADA_ES_ENABLED): ""
-    env(CICADA_ES_INDEXING_ENABLED): ""
+    env(SHOPWARE_ES_ENABLED): ""
+    env(SHOPWARE_ES_INDEXING_ENABLED): ""
     env(OPENSEARCH_URL): ""
-    env(CICADA_ES_INDEX_PREFIX): "sw"
-    env(CICADA_ES_THROW_EXCEPTION): "1"
-    env(CICADA_ADMIN_ES_ENABLED): ""
+    env(SHOPWARE_ES_INDEX_PREFIX): "sw"
+    env(SHOPWARE_ES_THROW_EXCEPTION): "1"
+    env(SHOPWARE_ADMIN_ES_ENABLED): ""
     env(ADMIN_OPENSEARCH_URL): ""
-    env(CICADA_ADMIN_ES_INDEX_PREFIX): "sw-admin"
-    env(CICADA_ADMIN_ES_REFRESH_INDICES): ""
-    env(CICADA_ES_INDEXING_BATCH_SIZE): "100"
-    env(CICADA_ES_EXCLUDE_SOURCE): "0"
+    env(SHOPWARE_ADMIN_ES_INDEX_PREFIX): "sw-admin"
+    env(SHOPWARE_ADMIN_ES_REFRESH_INDICES): ""
+    env(SHOPWARE_ES_INDEXING_BATCH_SIZE): "100"
+    env(SHOPWARE_ES_EXCLUDE_SOURCE): "0"

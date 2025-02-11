@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Product;
+namespace Shopware\Elasticsearch\Product;
 
-use Cicada\Core\Content\Product\Events\ProductIndexerEvent;
-use Cicada\Core\Content\Product\Events\ProductStockAlteredEvent;
-use Cicada\Core\Framework\DataAbstractionLayer\EntityDefinition;
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Elasticsearch\Framework\Indexing\ElasticsearchIndexer;
+use Shopware\Core\Content\Product\Events\ProductIndexerEvent;
+use Shopware\Core\Content\Product\Events\ProductStockAlteredEvent;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityDefinition;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Elasticsearch\Framework\Indexing\ElasticsearchIndexer;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**

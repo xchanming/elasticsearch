@@ -1,14 +1,14 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Framework;
+namespace Shopware\Elasticsearch\Framework;
 
-use Cicada\Core\Defaults;
-use Cicada\Core\Framework\Context;
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Core\System\CustomField\CustomFieldTypes;
 use Doctrine\DBAL\Exception;
+use Shopware\Core\Defaults;
+use Shopware\Core\Framework\Context;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Core\System\CustomField\CustomFieldTypes;
 
-#[Package('buyers-experience')]
+#[Package('inventory')]
 class ElasticsearchFieldMapper
 {
     /**
@@ -34,12 +34,12 @@ class ElasticsearchFieldMapper
      * @example
      *
      *  ```php
-     *  $items = [['name' => 'foo', 'languageId' => 'zh-CN'], ['name' => null, 'languageId' => 'en-GB']];
+     *  $items = [['name' => 'foo', 'languageId' => 'de-DE'], ['name' => null, 'languageId' => 'en-GB']];
      *  // $fallbackItems is used for inheritance of values from parent to child if child value is null
-     *  $fallbackItems = [['name' => 'foo-baz', 'languageId' => 'zh-CN'], ['name' => 'bar', 'languageId' => 'en-GB'], ['name' => 'baz', 'languageId' => 'vi-VN'];
+     *  $fallbackItems = [['name' => 'foo-baz', 'languageId' => 'de-DE'], ['name' => 'bar', 'languageId' => 'en-GB'], ['name' => 'baz', 'languageId' => 'vi-VN'];
      *
      *  $esValue = ElasticsearchIndexingHelper::mapTranslatedField('name', $items, $fallbackItems);
-     *  // ['zh-CN' => 'foo', 'en-GB' => 'bar', 'vi-VN' => 'baz']
+     *  // ['de-DE' => 'foo', 'en-GB' => 'bar', 'vi-VN' => 'baz']
      *  ```
      */
     public static function translated(string $field, array $items, array $fallbackItems = [], bool $stripText = true): array
@@ -87,14 +87,14 @@ class ElasticsearchFieldMapper
      * @example
      *
      * ```php
-     * $items = [['id' => 'fooId', 'name' => 'foo in EN', 'languageId' => 'en-GB'], ['id' => 'fooId', 'name' => 'foo in De', 'languageId' => 'zh-CN'], ['id' => 'barId', 'name' => 'bar', 'description' => 'bar description', 'languageId' => 'en-GB']];
+     * $items = [['id' => 'fooId', 'name' => 'foo in EN', 'languageId' => 'en-GB'], ['id' => 'fooId', 'name' => 'foo in De', 'languageId' => 'de-DE'], ['id' => 'barId', 'name' => 'bar', 'description' => 'bar description', 'languageId' => 'en-GB']];
      * $esValue = ElasticsearchIndexingHelper::mapToManyAssociations($items, ['name', 'description']);
      * // [
      *      [
      *          'id' => 'fooId',
      *          'name' => [
      *              'en-GB' => 'foo in EN',
-     *              'zh-CN' => 'foo in De',
+     *              'de-DE' => 'foo in De',
      *          ],
      *          'description' => [
      *              'en-GB' => null,
@@ -193,7 +193,7 @@ class ElasticsearchFieldMapper
 
             /**
              * Do not convert/cast fields defined as text.
-             * See https://github.com/cicada/cicada/issues/4459
+             * See https://github.com/shopware/shopware/issues/4459
              */
             if ($type === CustomFieldTypes::TEXT) {
                 continue;

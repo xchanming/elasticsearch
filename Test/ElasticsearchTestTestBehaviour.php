@@ -1,22 +1,22 @@
 <?php declare(strict_types=1);
 
-namespace Cicada\Elasticsearch\Test;
+namespace Shopware\Elasticsearch\Test;
 
-use Cicada\Core\DevOps\Environment\EnvironmentHelper;
-use Cicada\Core\Framework\DataAbstractionLayer\Dbal\EntityAggregator;
-use Cicada\Core\Framework\DataAbstractionLayer\Dbal\EntitySearcher;
-use Cicada\Core\Framework\Log\Package;
-use Cicada\Elasticsearch\Framework\Command\ElasticsearchIndexingCommand;
-use Cicada\Elasticsearch\Framework\DataAbstractionLayer\AbstractElasticsearchAggregationHydrator;
-use Cicada\Elasticsearch\Framework\DataAbstractionLayer\AbstractElasticsearchSearchHydrator;
-use Cicada\Elasticsearch\Framework\DataAbstractionLayer\CriteriaParser;
-use Cicada\Elasticsearch\Framework\DataAbstractionLayer\ElasticsearchEntityAggregator;
-use Cicada\Elasticsearch\Framework\DataAbstractionLayer\ElasticsearchEntitySearcher;
-use Cicada\Elasticsearch\Framework\ElasticsearchHelper;
 use Doctrine\DBAL\Connection;
 use OpenSearch\Client;
 use PHPUnit\Framework\Attributes\After;
 use PHPUnit\Framework\Attributes\Before;
+use Shopware\Core\DevOps\Environment\EnvironmentHelper;
+use Shopware\Core\Framework\DataAbstractionLayer\Dbal\EntityAggregator;
+use Shopware\Core\Framework\DataAbstractionLayer\Dbal\EntitySearcher;
+use Shopware\Core\Framework\Log\Package;
+use Shopware\Elasticsearch\Framework\Command\ElasticsearchIndexingCommand;
+use Shopware\Elasticsearch\Framework\DataAbstractionLayer\AbstractElasticsearchAggregationHydrator;
+use Shopware\Elasticsearch\Framework\DataAbstractionLayer\AbstractElasticsearchSearchHydrator;
+use Shopware\Elasticsearch\Framework\DataAbstractionLayer\CriteriaParser;
+use Shopware\Elasticsearch\Framework\DataAbstractionLayer\ElasticsearchEntityAggregator;
+use Shopware\Elasticsearch\Framework\DataAbstractionLayer\ElasticsearchEntitySearcher;
+use Shopware\Elasticsearch\Framework\ElasticsearchHelper;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\NullOutput;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -107,10 +107,10 @@ trait ElasticsearchTestTestBehaviour
 
         $client = $c->get(Client::class);
 
-        $indices = $client->indices()->get(['index' => EnvironmentHelper::getVariable('CICADA_ES_INDEX_PREFIX') . '*']);
+        $indices = $client->indices()->get(['index' => EnvironmentHelper::getVariable('SHOPWARE_ES_INDEX_PREFIX') . '*']);
 
-        foreach ($indices as $index) {
-            $client->indices()->delete(['index' => $index['settings']['index']['provided_name']]);
+        foreach ($indices as $name => $index) {
+            $client->indices()->delete(['index' => $name]);
         }
 
         $connection = $c->get(Connection::class);
